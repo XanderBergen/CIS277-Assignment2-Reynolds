@@ -106,11 +106,12 @@ bool MemoryPool::deallocate(void* ptr)
         return false;
     }
 
+    // Return it to the top of the free-block stack.
+    freeBlocks.push(ptr);
+
     // Mark the block as available again.
     allocated[index] = false;
 
-    // Return it to the top of the free-block stack.
-    freeBlocks.push(ptr);
 
     return true;
 }
