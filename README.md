@@ -5,9 +5,11 @@ Alexander Reynolds
 This project is a Queue ADT using a fixed-capacity circular array that processes packets in FIFO order. frontIndex is used to track the oldest item in the queue, and count is used to track the number of items in the queue. I used the modulo operator (%) to allow indices to wrap without shifting elements, keeping the queue operations O(1). The PacketQueue class uses this queue to manage packet descriptors, while MemoryPool from Assignment 1 stores the actual packet bytes. The MemoryPool uses a Stack to reuse available blocks in LIFO order, while the Queue guarantees that packets are processed in their arrival order. Each packet's bytes are copied before its memory block is returned to the pool.
 ## How to Compile
 Compile with a C++23 compiler using the following command:
-```g++ -std=c++23 -Wall -Wextra -pedantic main.cpp PacketQueue.cpp MemoryPool.cpp -o packet_queue```
+```bash
+g++ -std=c++23 -Wall -Wextra -pedantic main.cpp PacketQueue.cpp MemoryPool.cpp -o packet_queue
+```
 ## How to Run
-After compiling, run the program with ./packet_queue, or packet_queue.exe
+After compiling, run the program with ./packet_queue, or .\packet_queue.exe
 ## Tests and Results
 I tested the Queue, MemoryPool, and PacketQueue using the tests in main.cpp.
 - FIFO - Packets processed in arrival order - Passed
